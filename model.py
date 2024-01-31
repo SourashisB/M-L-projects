@@ -16,5 +16,15 @@ from sklearn.ensemble import RandomForestClassifier
 import collections
 
 
-data  = pd.read_csv('./creditcard.csv')
-print(data.head())
+data  = pd.read_csv('../data/creditcard.csv')
+
+#clear null
+data.isnull().sum().max()
+
+#check columns
+print(data.columns)
+
+#fine detail
+print('No Frauds', round(data['Class'].value_counts()[0]/len(data) * 100,2), '% of the dataset')
+print('Frauds', round(data['Class'].value_counts()[1]/len(data) * 100,2), '% of the dataset')
+
